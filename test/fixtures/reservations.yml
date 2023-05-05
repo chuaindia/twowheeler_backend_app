@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city: MyString
+  duration_of_test_drive: 1
+  date_of_reservation: 2023-05-05
+
+two:
+  city: MyString
+  duration_of_test_drive: 1
+  date_of_reservation: 2023-05-05
