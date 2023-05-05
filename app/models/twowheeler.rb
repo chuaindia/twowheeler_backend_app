@@ -1,0 +1,2 @@
+class Twowheeler < ApplicationRecord
+end

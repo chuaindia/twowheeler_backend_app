@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  image_url: MyString
+  price: 9.99
+  model_year: 1
+  engine_type: MyString
+  fuel_type: MyString
+
+two:
+  name: MyString
+  description: MyText
+  image_url: MyString
+  price: 9.99
+  model_year: 1
+  engine_type: MyString
+  fuel_type: MyString
