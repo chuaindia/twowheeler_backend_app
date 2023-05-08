@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_06_163258) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_05_115515) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,10 +18,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_06_163258) do
     t.string "city"
     t.integer "duration_of_test_drive"
     t.date "date_of_reservation"
+    t.bigint "user_id", null: false
+    t.bigint "twowheeler_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.integer "twowheeler_id"
+    t.index ["twowheeler_id"], name: "index_reservations_on_twowheeler_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "twowheelers", force: :cascade do |t|
@@ -42,4 +44,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_06_163258) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "reservations", "twowheelers"
+  add_foreign_key "reservations", "users"
 end
