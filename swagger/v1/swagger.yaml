@@ -6,22 +6,22 @@ info:
 paths:
   "/api/v1/twowheelers":
     get:
-      summary: list motorcycles
+      summary: list twowheelers
       responses:
         '200':
           description: successful
     post:
-      summary: create motorcycle
+      summary: create twowheeler
       responses:
         '200':
           description: successful
-  "/api/v1/motorcycles/new":
+  "/api/v1/twowheelers/new":
     get:
-      summary: new motorcycle
+      summary: new twowheeler
       responses:
         '200':
           description: successful
-  "/api/v1/motorcycles/{id}/edit":
+  "/api/v1/twowheelers/{id}/edit":
     parameters:
     - name: id
       in: path
@@ -30,11 +30,11 @@ paths:
       schema:
         type: string
     get:
-      summary: edit motorcycle
+      summary: edit twowheeler
       responses:
         '200':
           description: successful
-  "/api/v1/motorcycles/{id}":
+  "/api/v1/twowheelers/{id}":
     parameters:
     - name: id
       in: path
@@ -43,22 +43,22 @@ paths:
       schema:
         type: string
     get:
-      summary: show motorcycle
+      summary: show twowheeler
       responses:
         '200':
           description: successful
     patch:
-      summary: update motorcycle
+      summary: update twowheeler
       responses:
         '200':
           description: successful
     put:
-      summary: update motorcycle
+      summary: update twowheeler
       responses:
         '200':
           description: successful
     delete:
-      summary: delete motorcycle
+      summary: delete twowheeler
       responses:
         '200':
           description: successful
