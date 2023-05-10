@@ -26,4 +26,4 @@ The processes used here:
 * run rails db:create, rails db: migrate, rails db:seed.
 * run rails s.
 * In the server within api/v1/twowheelers all the data will appear.
-* Reservation by a particular user can also be retrieved by writing api/v1/users/<user id>/reservations
+* Reservation by a particular user can also be retrieved by writing api/v1/users/<user id>/reservations.
