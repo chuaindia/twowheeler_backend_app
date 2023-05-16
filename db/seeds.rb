@@ -1,11 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-Twowheeler.create(name: "Honda CB Shine", description: "A popular commuter motorcycle from Honda with sleek styling and reliable performance.", image_url: "https://static.autox.com/uploads/2019/10/Honda-cb-shine-bsIV-launched-m-500x261-500x261.jpg", price: 10000,model_year: "2021",  engine_type: "Single-cylinder, 4-stroke, air-cooled", fuel_type: "Petrol")
+User.create(username: "Arghya")
+User.create(username: "Barnali")
+User.create(username: "Chandan")
+User.create(username: "Manjulika")
+
+Twowheeler.create(name: "Honda CB Shine", description: "A popular commuter motorcycle from Honda with sleek styling and reliable performance.", image_url: "https://static.autox.com/uploads/2019/10/Honda-cb-shine-bsIV-launched-m-500x261-500x261.jpg", price: 10000, model_year: "2021",  engine_type: "Single-cylinder, 4-stroke, air-cooled", fuel_type: "Petrol")
 Twowheeler.create(name: "Vespa Primavera 150", description: "A classic Italian scooter with stylish design and great performance.", image_url: "https://www.motorcular.com/files/1000x1000_5b82a2e081379_427526345.jpg", price: 440000, model_year: "2021", engine_type: "Single-cylinder, 4-stroke, air-cooled", fuel_type: "Petrol")
 Twowheeler.create(name: "Harley-Davidson Street 750", description: "An entry-level cruiser motorcycle from Harley-Davidson with an iconic American style and smooth performance.", image_url: "https://d2bywgumb0o70j.cloudfront.net/2019/10/02/46fb295cbc49bf19e5acc501c1c84325_aa1e308a6f2930f8.png", price: 600000, model_year: "2021", engine_type: "Liquid-cooled, Revolution X™ V-Twin", fuel_type: "Petrol")
 Twowheeler.create(name: "Yamaha YZF-R6", description: "A popular sportbike", image_url: "https://cdn.otopark.com/wp-content/uploads/2016/10/2017_Yamaha_YZF-R6_28.jpg", price: 13199.0, model_year: "2022", engine_type: "599cc inline-four", fuel_type: "Gasoline") 
@@ -15,5 +13,6 @@ Twowheeler.create(name: "Suzuki Burgman Street", description: "A comfortable and
 Twowheeler.create(name: "Ducati Panigale V4", description: "A premium sports motorcycle from Ducati, featuring a powerful engine and advanced electronics for exceptional performance.", image_url: "https://korlas.com.tr/wp-content/uploads/2020/12/Panigale-V4-R-MY19-Red-01-Model-Preview-1050x650-1.png", price: 2040000, model_year: "2021", engine_type: "Liquid-cooled, 4-stroke, DOHC, 4-valve", fuel_type: "Petrol")
 Twowheeler.create(name: "Kawasaki Ninja ZX-10R", description: "A powerful and aerodynamic sportbike.", image_url: "https://www.motosikletsitesi.com/wp-content/uploads/2022/10/23MY_Ninja-ZX-10R-Performance_GN1_Front.001.png", price: 0.16999e5, model_year: "2022", engine_type: "998cc inline-four", fuel_type: "Gasoline")
 
-
-
+Reservation.create(user_id: 1, twowheeler_id: 1, city: 'Kolkata', date: '2023-09-10', hour: 1)
+Reservation.create(user_id: 2, twowheeler_id: 2, city: 'Mumbai', date: '2023-12-23', hour: 2)
+Reservation.create(user_id: 4, twowheeler_id: 3, city: 'Bhubaneswar', date: '2023-11-15', hour: 3)

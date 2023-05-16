@@ -4,110 +4,201 @@ info:
   title: API V1
   version: v1
 paths:
+  "/api/v1/reservation":
+    post:
+      summary: Creates a reservation
+      tags:
+      - Reservations
+      parameters: []
+      responses:
+        '201':
+          description: Reservation created
+        '406':
+          description: Reservation not created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                twowheeler_id:
+                  type: integer
+                city:
+                  type: string
+                date:
+                  type: string
+                hour:
+                  type: string
+              required:
+              - user_id
+              - twowheeler_id
+              - city
+              - date
+              - hour
+  "/api/v1/reservation/{id}":
+    delete:
+      summary: Deletes a reservation
+      tags:
+      - Reservations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Reservation deleted
+        '404':
+          description: Reservation not found
   "/api/v1/twowheelers":
-    get:
-      summary: list twowheelers
-      responses:
-        '200':
-          description: successful
     post:
-      summary: create twowheeler
+      summary: Creates a twowheeler
+      tags:
+      - Twowheelers
+      parameters: []
       responses:
-        '200':
-          description: successful
-  "/api/v1/twowheelers/new":
+        '201':
+          description: Twowheeler has been created successfully!
+        '406':
+          description: Something went wrong.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: text
+                image_url:
+                  type: string
+                price:
+                  type: integer
+                model_year:
+                  type: integer
+                engine_type:
+                  type: string
+                fuel_type:
+                  type: string  
+              required:
+              - name
+              - image_url
+              - price
+              - engine_type
+              - fuel_type
     get:
-      summary: new twowheeler
+      summary: Retrieves Twowheelers
+      tags:
+      - twowheelers
       responses:
         '200':
-          description: successful
-  "/api/v1/twowheelers/{id}/edit":
-    parameters:
-    - name: id
-      in: path
-      description: id
-      required: true
-      schema:
-        type: string
-    get:
-      summary: edit twowheeler
-      responses:
-        '200':
-          description: successful
+          description: Twowheelers found
+          content:
+            application/json:
+              schema:
+                type: array
+                properties:
+                  name:
+                  type: string
+                description:
+                  type: text
+                image_url:
+                  type: string
+                price:
+                  type: integer
+                model_year:
+                  type: integer
+                engine_type:
+                  type: string
+                fuel_type:
+                  type: string  
+              required:
+              - name
+              - image_url
+              - price
+              - engine_type
+              - fuel_type
   "/api/v1/twowheelers/{id}":
-    parameters:
-    - name: id
-      in: path
-      description: id
-      required: true
-      schema:
-        type: string
-    get:
-      summary: show twowheeler
-      responses:
-        '200':
-          description: successful
-    patch:
-      summary: update twowheeler
-      responses:
-        '200':
-          description: successful
-    put:
-      summary: update twowheeler
-      responses:
-        '200':
-          description: successful
     delete:
-      summary: delete twowheeler
+      summary: Destroy a twowheeler
+      tags:
+      - Twowheelers
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
-          description: successful
-  "/api/v1/reserve":
+          description: Twowheeler has been destroyed successfully!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                  type: string
+                description:
+                  type: text
+                image_url:
+                  type: string
+                price:
+                  type: integer
+                model_year:
+                  type: integer
+                engine_type:
+                  type: string
+                fuel_type:
+                  type: string  
+  "/api/v1/signup":
     post:
-      summary: reserve reservation
+      summary: Creates an user
+      tags:
+      - Users Signup
+      parameters: []
       responses:
-        '200':
-          description: successful
-  "/api/v1/reserve/{id}":
-    parameters:
-    - name: id
-      in: path
-      description: id
-      required: true
-      schema:
-        type: string
-    delete:
-      summary: checkout reservation
-      responses:
-        '200':
-          description: successful
+        '201':
+          description: user created
+        '406':
+          description: Not acceptable
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required:
+              - username
   "/api/v1/login":
     post:
-      summary: login user
+      summary: Logs in an user
+      tags:
+      - Users Login
+      parameters: []
       responses:
         '200':
-          description: successful
-  "/api/v1/register":
-    post:
-      summary: register user
-      responses:
-        '200':
-          description: successful
-  "/api/v1/users/{id}/reservations":
-    parameters:
-    - name: id
-      in: path
-      description: id
-      required: true
-      schema:
-        type: string
-    get:
-      summary: reservations user
-      responses:
-        '200':
-          description: successful
+          description: Logged in
+        '404':
+          description: Not acceptable
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required:
+              - username
 servers:
-- url: https://{defaultHost}
+- url: http://{defaultHost}
   variables:
     defaultHost:
-      default: http://localhost:3000
+      default: 127.0.0.1:3000

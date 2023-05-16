@@ -10,27 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_05_115515) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_15_172155) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "reservations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "twowheeler_id"
     t.string "city"
-    t.integer "duration_of_test_drive"
-    t.date "date_of_reservation"
-    t.bigint "user_id", null: false
-    t.bigint "twowheeler_id", null: false
+    t.date "date"
+    t.string "hour"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["twowheeler_id"], name: "index_reservations_on_twowheeler_id"
-    t.index ["user_id"], name: "index_reservations_on_user_id"
+    t.index ["twowheeler_id", "date", "hour"], name: "index_reservations_on_twowheeler_id_and_date_and_hour", unique: true
   end
 
   create_table "twowheelers", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.string "image_url"
-    t.decimal "price"
+    t.integer "price"
     t.integer "model_year"
     t.string "engine_type"
     t.string "fuel_type"
@@ -39,11 +38,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_05_115515) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "reservations", "twowheelers"
-  add_foreign_key "reservations", "users"
+  add_foreign_key "reservations", "twowheelers", on_delete: :cascade
+  add_foreign_key "reservations", "users", on_delete: :cascade
 end
